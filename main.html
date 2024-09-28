@@ -320,7 +320,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-block" value="yes">Có</button>
+                                <button type="submit" class="btn btn-primary btn-block" value="yes" id="yes-button">Có</button>
                             </div>
                             <div class="col-md-2 col-sm-2">
                                 <button type="submit" class="btn btn-primary btn-block" value="no">Không</button>
@@ -431,7 +431,7 @@
             console.log('type: ' + guest_type);
             console.log('attend: ' + submitValue);
 
-            await fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
+            fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ 
@@ -441,7 +441,14 @@
                 })
             });
 
-            alert("Cảm ơn quý khách đã cho ý kiến");
+            if (submitValue === 'no')
+            {
+                document.getElementById('myModal').style.display = 'flex';
+            }
+            else
+            {
+                document.getElementById('yes-button').innerHTML = '&#x2714';
+            }
         });
 
         function showLightBox() {
