@@ -431,7 +431,7 @@
             console.log('type: ' + guest_type);
             console.log('attend: ' + submitValue);
 
-            await fetch("https://th-wedding-backend.tungnt-ptit16.workers.dev/add-guest", {
+            await fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ 
