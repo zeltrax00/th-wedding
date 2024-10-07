@@ -457,6 +457,12 @@
             lightbox.open();
         }
 
+        document.addEventListener("DOMContentLoaded", (event) => {
+            var w = window.innerWidth;
+            if (innerWidth < 512)
+                document.getElementById('fh5co-header').style.backgroundImage='url("images/img_bg_1.jpg")';
+        });
+
     </script>
 
 </body>
