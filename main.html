@@ -42,7 +42,7 @@
 
 <body>
     <div class="fh5co-loader"></div>
-    <audio autoplay loop muted><source src="beautifulinwhite.mp3" type="audio/mpeg"></audio>
+    <audio autoplay loop muted preload="auto"><source src="beautifulinwhite.mp3" type="audio/mpeg"></audio>
     <div id="page">
         <nav class="fh5co-nav" role="navigation">
             <div class="container">
@@ -164,7 +164,7 @@
                                         <span class="date">15-12-2022</span>
                                     </div>
                                     <div class="timeline-body">
-                                        <p>Chú rể hẹn cô dâu đi chơi
+                                        <p>Chú rể hẹn cô dâu đi xem phim
                                         </p>
                                     </div>
                                 </div>
@@ -360,6 +360,18 @@
     
     </div>
 
+    <div id="myModalYes" class="popup-modal">
+        <!-- Modal content -->
+        <div class="popup-modal-content">
+        <p>Hẹn gặp lại tại bữa tiệc</p>
+        <button class="popup-close btn btn-primary btn-block" 
+        onclick="document.getElementById('myModalYes').style.display = 'none';">
+            Xin cảm ơn
+        </button>
+        </div>
+    
+    </div>
+
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- jQuery Easing -->
@@ -390,6 +402,7 @@
         let audio = document.querySelector('audio');
         audio.muted = false;
         audio.volume = 0.3;
+        audio.play();
 
         var d = new Date(new Date('2024-11-02 16:30:00'));
 
@@ -448,6 +461,8 @@
             else
             {
                 document.getElementById('yes-button').innerHTML = '&#x2714';
+                $('#name').val('');
+                document.getElementById('myModalYes').style.display = 'flex';
             }
         });
 
