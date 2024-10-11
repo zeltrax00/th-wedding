@@ -454,7 +454,7 @@
             event.preventDefault(); // Prevent default form submission
 
             // Check which button was clicked
-            const submitValue = document.activeElement.value; // `document.activeElement` gives the button clicked
+            const submitValue = document.activeElement.value.trim(); // `document.activeElement` gives the button clicked
 
             // Get the form data
             const guest_name = $('#name').val();
