@@ -1,178 +1,505 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 
 <head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Thiệp cưới &mdash; Tùng Hương</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        body {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: sans-serif;
-            background-color: #ffffff;
-            background-image: url("images/intro_bg.jpg");
-        }
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
+        type='text/css'>
 
-        .wrapper {
-            height: 200px;
-            width: 300px;
-            background-color: #d673a1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            z-index: 0;
-            cursor: pointer;
-            /* Start the shake animation and make the animation last for 0.5 seconds */
-            animation: shake 0.5s;
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
 
-            /* When the animation is finished, start again */
-            animation-iteration-count: infinite;
-        }
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-        .lid {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            border-right: 150px solid transparent;
-            border-bottom: 100px solid transparent;
-            border-left: 150px solid transparent;
-            transform-origin: top;
-            transition: transform 0.25s linear;
-        }
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
-        /* Lid when closed */
-        .lid.one {
-            border-top: 100px solid #ed6592;
-            transform: rotateX(0deg);
-            z-index: 3;
-            transition-delay: 0.75s;
-        }
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
 
-        /* Lid when opened */
-        .lid.two {
-            border-top: 100px solid #ed6592;
-            transform: rotateX(90deg);
-            z-index: 1;
-            transition-delay: 0.5s;
-        }
-
-        .envelope {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            border-top: 100px solid transparent;
-            border-right: 150px solid #f0c4df;
-            border-bottom: 100px solid #f0c4dc;
-            border-left: 150px solid #f2a4d2;
-            z-index: 3;
-            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-        .wrapper:hover {
-            animation: none;
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translate(1px, 1px) rotate(0deg);
-            }
-
-            10% {
-                transform: translate(-1px, -2px) rotate(-1deg);
-            }
-
-            20% {
-                transform: translate(-3px, 0px) rotate(1deg);
-            }
-
-            30% {
-                transform: translate(3px, 2px) rotate(0deg);
-            }
-
-            40% {
-                transform: translate(1px, -1px) rotate(1deg);
-            }
-
-            50% {
-                transform: translate(-1px, 2px) rotate(-1deg);
-            }
-
-            60% {
-                transform: translate(-3px, 1px) rotate(0deg);
-            }
-
-            70% {
-                transform: translate(3px, 1px) rotate(-1deg);
-            }
-
-            80% {
-                transform: translate(-1px, -1px) rotate(1deg);
-            }
-
-            90% {
-                transform: translate(1px, 2px) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(1px, -2px) rotate(-1deg);
-            }
-        }
-
-            .letter {
-                position: absolute;
-                top: 0;
-                width: 80%;
-                height: 80%;
-                background-color: white;
-                border-radius: 15px;
-                z-index: 2;
-                transition: 0.5s;
-            }
-
-            .letter p {
-                text-align: center;
-                font-size: 30px;
-                margin-top: 30px;
-                color: #3B4049;
-            }
-
-            .wrapper:hover .lid.one {
-                transform: rotateX(90deg);
-                transition-delay: 0s;
-            }
-
-            .wrapper:hover .lid.two {
-                transform: rotateX(180deg);
-                transition-delay: 0.25s;
-            }
-
-            .wrapper:hover .letter {
-                transform: translateY(-50px);
-                transition-delay: 0.5s;
-            }
-    </style>
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
-    <div class="wrapper" onclick='window.location.href = "main.html";'>
-        <div class="lid one"></div>
-        <div class="lid two"></div>
-        <div class="envelope"></div>
-        <div class="letter">
-            <p>Hello</p>
+    <div class="my-bg">
+        <div class="wrapper" id="startbtn">
+            <div class="lid one"></div>
+            <div class="lid two"></div>
+            <div class="envelope"></div>
+            <div class="letter">
+                <p>Hello</p>
+            </div>
         </div>
     </div>
+
+    <div class="fh5co-loader"></div>
+    <audio id="music" loop preload="auto"><source src="beautifulinwhite.mp3" type="audio/mpeg"></audio>
+    <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div id="fh5co-logo"><a href="main.html">Wedding<strong>.</strong></a></div>
+                    </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            <li><a href="#fh5co-couple-story">Story</a></li>
+                            <li><a href="#fh5co-gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);"
+            data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <div class="display-t">
+                            <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                                <h1>Tùng &amp; Hương</h1>
+                                <h2>Sẽ tổ chức đám cưới trong</h2>
+                                <div class="simply-countdown simply-countdown-one"></div>
+                                <p><a href="#fh5co-started" class="btn btn-default btn-sm">Tham dự</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="fh5co-couple">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                        <h2>Xin chào!</h2>
+                        <h3>Trân trọng kính mời quý khách đến dự <br> bữa tiệc thân mật chung vui cùng gia đình</h3>
+                        <div>
+                            <span style="font-size: 2em;">Tháng 11</span>
+                            <div class="invitation-date" style="display: flex; justify-content: center; align-items: center;">
+                                <div><button class="custom-button">THỨ BẢY</button></div>
+                                <div style="font-size: 1.5em; letter-spacing: 0.1em; margin-top: 5px;font-size: 7em; margin: 0px 20px; padding: 0px;">
+                                    02
+                                </div>
+                                <div><button class="custom-button">16 giờ 30 phút</button></div>
+                            </div>
+                            <span style="font-size: 2em; letter-spacing: 0.1em;">2024</span>
+                            <div style="display: flex; justify-content: center">
+        
+                                <div class="h-divider">
+                                    <div class="shadow"></div>
+                                </div>
+                            </div>
+                            <h3>Tại Trung tâm tiệc cưới Hà Dương Palace</h3>
+                            <h3>431 Tam Trinh, Khu Đô Thị Vĩnh Hoàng, Hoàng Mai, Hà Nội</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="couple-wrap animate-box">
+                    <div class="couple-half">
+                        <div class="groom">
+                            <img src="images/groom.jpg" alt="groom" class="img-responsive">
+                        </div>
+                        <div class="desc-groom">
+                            <h3>Nguyễn Thanh Tùng</h3>
+                            <p>Chú rể</p>
+                        </div>
+                    </div>
+                    <p class="heart text-center"><i class="icon-heart2"></i></p>
+                    <div class="couple-half">
+                        <div class="bride">
+                            <img src="images/bride.jpg" alt="groom" class="img-responsive">
+                        </div>
+                        <div class="desc-bride">
+                            <h3>Nguyễn Thị Minh Hương</h3>
+                            <p>Cô dâu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-couple-story">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                        <span>We Love Each Other</span>
+                        <h2>Love Story</h2>
+                        <p>Hành trình tới hạnh phúc</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0">
+                        <ul class="timeline animate-box">
+                            <li class="animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/1st-met.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">Lần đầu gặp gỡ</h3>
+                                        <span class="date">08-12-2022</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Nhiều lần chạm mặt nhưng đây là lần đầu tiên chính thức nói chuyện
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/1st-date.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">Lần hẹn hò đầu tiên</h3>
+                                        <span class="date">15-12-2022</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Chú rể hẹn cô dâu đi xem phim
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/to-tinh.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">Bắt đầu mối quan hệ</h3>
+                                        <span class="date">24-12-2022</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Tỏ tình vào đêm giáng sinh
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted animate-box">
+                                <div class="timeline-badge" style="background-image:url(images/cau-hon.jpg);"></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h3 class="timeline-title">Ngỏ lời</h3>
+                                        <span class="date">24-12-2023</span>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p>Kỷ niệm 1 năm bên nhau bằng lời cầu hôn
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-gallery" class="fh5co-section-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                        <span>Our Memories</span>
+                        <h2>Wedding Gallery</h2>
+                    </div>
+                </div>
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-12">
+                        <ul id="fh5co-gallery-list">
+                            <li class="animate-box" data-animate-effect="fadeIn"
+                                style="background-image: url(images/gallery-1.jpg); width: 100%;">
+                                <a href="#!" onclick="showLightBox();">
+                                    <div class="case-studies-summary">
+                                        <span id="num-of-photos"></span>
+                                        <h2>Gallery</h2>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/img_bg_3.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                        <span>Our Special Events</span>
+                        <h2>Thời gian sự kiện</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="display-t">
+                        <div class="display-tc">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <h3>Lễ ăn hỏi</h3>
+                                        <div class="event-col">
+                                            <i class="icon-clock"></i>
+                                            <span>08:00</span>
+                                            <span>13:00</span>
+                                        </div>
+                                        <div class="event-col">
+                                            <i class="icon-calendar"></i>
+                                            <span>Thứ Bảy</span>
+                                            <span>02-11-2024</span>
+                                        </div>
+                                        <p>Lễ ăn hỏi và xin dâu
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 text-center">
+                                    <div class="event-wrap animate-box">
+                                        <h3>Tiệc cưới</h3>
+                                        <div class="event-col">
+                                            <i class="icon-clock"></i>
+                                            <span>16:30</span>
+                                            <span>20:00</span>
+                                        </div>
+                                        <div class="event-col">
+                                            <i class="icon-calendar"></i>
+                                            <span>Thứ Bảy</span>
+                                            <span>02-11-2024</span>
+                                        </div>
+                                        <p>Tiệc cưới tại nhà hàng
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fh5co-bg" style="padding-top: 20px;">
+            <h2 style="text-align: center;">Bản đồ tới nhà hàng</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.209231791413!2d105.86245294515925!3d20.984248386064642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac1794212e69%3A0xa7c3a7be3aee825b!2zVHJ1bmcgdMOibSB04buVIGNo4bupYyB0aeG7h2MgY8aw4bubaSBIw6AgRMawxqFuZyBQYWxhY2U!5e0!3m2!1sen!2s!4v1726654136400!5m2!1sen!2s"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row animate-box">
+                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                        <h2>Bạn có thể tham dự tiệc cưới không?</h2>
+                        <p>Hãy cho gia đình biết kế hoạch của bạn <br>
+                            để có thể chuẩn bị sự tiếp đón tốt nhất</p>
+                    </div>
+                </div>
+                <div class="row animate-box">
+                    <div class="col-md-12">
+                        <form class="form-inline" id="attend-form">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="name" class="sr-only">Tên</label>
+                                    <input type="name" class="form-control" id="name" placeholder="Tên hoặc biệt danh gợi nhớ"
+                                    title="Hãy chọn một tên hoặc biệt danh mà gia đình dễ dàng nhận ra bạn. Ví dụ: Hoàng PTIT, Hiếu wibu, ...">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    <label for="guest-types" class="sr-only">Bạn là</label>
+                                    <select name="guest-types" id="guest-types" class="form-control" style="cursor: pointer;">
+                                        <option value="0">Khách của chú rể</option>
+                                        <option value="1">Khách của cô dâu</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-block" value="yes" id="yes-button">Có</button>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button type="submit" class="btn btn-primary btn-block" value="no">Không</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="popup-modal">
+
+        <!-- Modal content -->
+        <div class="popup-modal-content">
+        
+        <p>Thật đáng tiếc bạn không thể tới dự tiệc</p>
+        <p>Bạn có thể gửi quà cho gia đình tại đây</p>
+
+        <div class="bank">
+            <img src="images/stk_groom.jpg"/>
+            <img src="images/stk_bride.jpg"/>
+        </div>
+        
+
+        <button class="popup-close btn btn-primary btn-block" 
+        onclick="document.getElementById('myModal').style.display = 'none';">
+            Xin cảm ơn
+        </button>
+        </div>
+    
+    </div>
+
+    <div id="myModalYes" class="popup-modal">
+        <!-- Modal content -->
+        <div class="popup-modal-content">
+        <p>Hẹn gặp lại tại bữa tiệc</p>
+        <button class="popup-close btn btn-primary btn-block" 
+        onclick="document.getElementById('myModalYes').style.display = 'none';">
+            Xin cảm ơn
+        </button>
+        </div>
+    
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- countTo -->
+    <script src="js/jquery.countTo.js"></script>
+
+    <!-- Stellar -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+
+    <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
+    <script src="js/simplyCountdown.js"></script>
+    <!-- Main -->
+    <script src="js/main.js"></script>
+
+    <script src="js/fslightbox.js"></script>
+
+    <script>
+        const startbtn = document.getElementById("startbtn");
+        const content = document.getElementById("page");
+        const music = document.getElementById("music");
+        const bg = document.getElementsByClassName("my-bg")[0];
+        music.volume=0.3;
+        //Add an event listner to the start button
+        startbtn.addEventListener("click", () => {
+            bg.style.display = "none";
+            music.play().then(() => {
+                //Hide the loader and show the content
+                content.style.display = "block";
+            });
+        });
+
+        var d = new Date(new Date('2024-11-02 16:30:00'));
+
+        gallery = [
+            "images/gallery-1.jpg",
+            "images/gallery-2.jpg",
+            "images/gallery-3.jpg",
+            "images/gallery-4.jpg",
+            "images/gallery-5.jpg",
+            "images/gallery-6.jpg",
+            "images/gallery-7.jpg",
+            "images/gallery-8.jpg",
+            "images/gallery-9.jpg"
+        ];
+
+        $('#num-of-photos').html(gallery.length + " Photos");
+
+        // default example
+        simplyCountdown('.simply-countdown-one', {
+            year: d.getFullYear(),
+            month: d.getMonth() + 1,
+            day: d.getDate(),
+            hours: d.getHours(),
+            minutes: d.getMinutes(),
+            seconds: d.getSeconds(),
+        });
+
+        document.getElementById('attend-form').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            // Check which button was clicked
+            const submitValue = document.activeElement.value; // `document.activeElement` gives the button clicked
+
+            // Get the form data
+            const guest_name = $('#name').val();
+            const guest_type = $('#guest-types').val();
+
+            console.log('name: ' + guest_name);
+            console.log('type: ' + guest_type);
+            console.log('attend: ' + submitValue);
+
+            fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ 
+                    name: guest_name,
+                    type: Number(guest_type),
+                    attend: submitValue === 'yes' ? 1 : 0
+                })
+            });
+
+            if (submitValue === 'no')
+            {
+                document.getElementById('myModal').style.display = 'flex';
+            }
+            else
+            {
+                document.getElementById('yes-button').innerHTML = '&#x2714';
+                $('#name').val('');
+                document.getElementById('myModalYes').style.display = 'flex';
+            }
+        });
+
+        function showLightBox() {
+            var lightbox = new FsLightbox();
+            lightbox.props.sources = gallery;
+            lightbox.open();
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            var w = window.innerWidth;
+            if (innerWidth < 512)
+                document.getElementById('fh5co-header').style.backgroundImage='url("images/img_bg_1.jpg")';
+        });
+
+    </script>
+
 </body>
 
 </html>
