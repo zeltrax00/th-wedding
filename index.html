@@ -313,7 +313,7 @@
                 </div>
                 <div class="row animate-box">
                     <div class="col-md-12">
-                        <form class="form-inline" id="attend-form">
+                        <form class="form-inline" id="attend-form" onsubmit="event.preventDefault(); return false;">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="name" class="sr-only">Tên</label>
@@ -331,10 +331,10 @@
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-block" value="yes" id="yes-button">Có</button>
+                                <button type="submit" class="btn btn-primary btn-block" id="yes-btn">Có</button>
                             </div>
                             <div class="col-md-2 col-sm-2">
-                                <button type="submit" class="btn btn-primary btn-block" value="no">Không</button>
+                                <button type="submit" class="btn btn-primary btn-block" id="no-btn">Không</button>
                             </div>
                         </form>
                     </div>
@@ -450,19 +450,9 @@
             seconds: d.getSeconds(),
         });
 
-        document.getElementById('attend-form').addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent default form submission
-
-            // Check which button was clicked
-            const submitValue = document.activeElement.value; // `document.activeElement` gives the button clicked
-
-            // Get the form data
+        document.getElementById('yes-btn').addEventListener("click", async (event) => {
             const guest_name = $('#name').val();
             const guest_type = $('#guest-types').val();
-
-            console.log('name: ' + guest_name);
-            console.log('type: ' + guest_type);
-            console.log('attend: ' + submitValue);
 
             fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
                 method: "POST",
@@ -470,20 +460,30 @@
                 body: JSON.stringify({ 
                     name: guest_name,
                     type: Number(guest_type),
-                    attend: submitValue === 'yes' ? 1 : 0
+                    attend: 1
                 })
             });
 
-            if (submitValue === 'no')
-            {
-                document.getElementById('myModal').style.display = 'flex';
-            }
-            else
-            {
-                document.getElementById('yes-button').innerHTML = '&#x2714';
-                $('#name').val('');
-                document.getElementById('myModalYes').style.display = 'flex';
-            }
+            $('#name').val('');
+            document.getElementById('myModalYes').style.display = 'flex';
+        });
+
+        document.getElementById('no-btn').addEventListener("click", async (event) => {
+            const guest_name = $('#name').val();
+            const guest_type = $('#guest-types').val();
+
+            fetch(atob('aHR0cHM6Ly90aC13ZWRkaW5nLWJhY2tlbmQudHVuZ250LXB0aXQxNi53b3JrZXJzLmRldi9hZGQtZ3Vlc3Q='), {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ 
+                    name: guest_name,
+                    type: Number(guest_type),
+                    attend: 0
+                })
+            });
+
+            $('#name').val('');
+            document.getElementById('myModal').style.display = 'flex';
         });
 
         function showLightBox() {
